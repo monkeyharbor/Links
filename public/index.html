@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css" />
+
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+
+    <title>LIBERATE LINKS</title>
+</head>
+
+<body>
+    <div id="map"></div>
+    
+    <div class="container">
+
+        <h4> Link Liberation Ideas <span id="link-address"> </span></h4>
+
+        <!-- ENTER NEW IDEA -->
+        <div class="sub-container">
+
+            <input type="text" class="idea-input" id="idea-name" placeholder="name" />
+
+            <input type="text" class="idea-input" id="idea-content" placeholder="ideas space" />
+
+            <button id="idea-button">submit</button>
+
+        </div>
+
+
+        <!-- EXPLORE ALL IDEAS -->
+        <div class="explore-others">
+
+            <button id="locationButton"> show ideas for THIS location ONLY </button>
+            <div id="location-info"></div>
+
+            <button id="allButtonn"> show ALL ideas</button>
+            <div id="all-info"></div>
+
+
+        </div>
+    </div>
+</body>
+
+
+<script type="text/javascript" src="app.js"> </script>
+
+
+</html>
