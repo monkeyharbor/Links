@@ -118,3 +118,28 @@ submitbutton.addEventListener("click", function () {
     console.log(ideaObject); 
 })
 
+// event to displays all ideas
+let allButton = document.getElementById("all-button");
+allButton.addEventListener("click", function () {
+  console.log("anything you want");
+
+  fetch("/allideas", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      const allIdeas = data;
+      const targetDiv = document.getElementById("all-info");
+
+      console.log(targetDiv);
+      for (i = 0; i < allIdeas.length; i++) {
+        let newElement = document.createElement("p");
+        let { name, content, address } = allIdeas[i];
+        newElement.innerText = `Name: ${name} Content: ${content}, Address: ${address}`;
+        targetDiv.append(newElement);
+      }
+    });
+});

@@ -13,7 +13,7 @@ let port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use('/', express.static('public'));
 
-//get route to return all data in DB
+//get route to return all data/ ideas in DB
 app.get('/allideas', (req, res) => {
     db.find({}, function (err, docs) {
         console.log(docs);
@@ -22,24 +22,24 @@ app.get('/allideas', (req, res) => {
 
 })
 
-app.get('/ideas/:location', (req, res) => {
-    //???
-    db.find({"address" : req.params.location}, function (err, docs) {
-        console.log(docs);
-        res.json(docs);
-    });
+// app.get('/ideas/:location', (req, res) => {
+//     //???
+//     db.find({"address" : req.params.location}, function (err, docs) {
+//         console.log(docs);
+//         res.json(docs);
+//     });
 
-})
+// })
 
-app.get('/userideas/:user', (req, res) => {
-    db.find({ name: req.params.user }, function (err, docs) {
-        console.log(docs);
-        let obj = {
-            "ideas": docs
-        }
-        res.json(obj);
-    });
-})
+// app.get('/userideas/:user', (req, res) => {
+//     db.find({ name: req.params.user }, function (err, docs) {
+//         console.log(docs);
+//         let obj = {
+//             "ideas": docs
+//         }
+//         res.json(obj);
+//     });
+// })
 
 app.post('/postidea', (req, res) => {
     console.log(req.body);
