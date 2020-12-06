@@ -8,7 +8,11 @@ let app = express();
 //Initialize HTTP server
 let http = require('http');
 let server = http.createServer(app);
+
 let port = process.env.PORT || 3000;
+server.listen(port, () => {
+    console.log("BIG EAR AT: " + port);
+});
 
 app.use(bodyParser.json());
 app.use('/', express.static('public'));
@@ -46,7 +50,3 @@ app.post('/postidea', (req, res) => {
     db.insert(req.body);
     res.json({ "status": "success" });
 })
-
-server.listen(port, () => {
-    console.log("BIG EAR AT: " + port);
-});
