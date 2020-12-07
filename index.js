@@ -1,9 +1,15 @@
 let express = require("express");
+let app = express();
+
+//Package to parse JSON
 let bodyParser = require("body-parser");
+app.use(bodyParser.json());
+app.use('/', express.static('public'));
+
+//DB initialization
 let DataStore = require('nedb');
 let db = new DataStore('liberatelinks.db');
 db.loadDatabase();
-let app = express();
 
 //Initialize HTTP server
 let http = require('http');
@@ -14,25 +20,20 @@ server.listen(port, () => {
     console.log("BIG EAR AT: " + port);
 });
 
-app.use(bodyParser.json());
-app.use('/', express.static('public'));
+//ROUTE to store ideas data
+app.post('/postidea', (req, res) => {
+    console.log(req.body);
+    db.insert(req.body);
+    res.json({ "status": "success" });
+})
 
-//get route to return all data/ ideas in DB
+
+//ROUTE to return all data/ ideas in DB
 app.get('/allideas', (req, res) => {
     db.find({}, function (err, docs) {
         console.log(docs);
         res.json(docs);
     });
-
-})
-
-app.get('/ideas/:location', (req, res) => {
-    //???
-    db.find({ "address": req.params.location }, function (err, docs) {
-        console.log(docs);
-        res.json(docs);
-    });
-
 })
 
 app.get('/userideas/:user', (req, res) => {
@@ -45,8 +46,10 @@ app.get('/userideas/:user', (req, res) => {
     });
 })
 
-app.post('/postidea', (req, res) => {
-    console.log(req.body);
-    db.insert(req.body);
-    res.json({ "status": "success" });
+//route to get ideas for the location ONLY
+app.get('/ideas/:location', (req, res) => {
+    db.find({ "address": req.params.location }, function (err, docs) {
+        console.log(docs);
+        res.json(docs);
+    });
 })

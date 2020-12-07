@@ -102,37 +102,37 @@ submitbutton.addEventListener("click", function () {
             console.log(data); //WRONG
             let newidea = document.createElement('p')
             newidea.innerHTML = ideaObject.content;
-
-            //clear field after user inout
         })
 
 })
 
 //clear input fields
+//make the function CLEAR THIS FIELD
 function myFunction() {
     document.getElementById("myForm").reset();
 }
 
-// event to displays all ideas / location only ideas
+// event to displays all ideas & location filter 
 let allButton = document.getElementById("all-button");
 allButton.addEventListener("click", function () {
     console.log("show ALL ideas button clicked");
+    fetchallIdeas();
+});
 
-    fetch("/allideas", {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        // body: JSON.stringify(ideaObject)
-    })
+
+function fetchallIdeas() {
+    fetch("/allideas")
         .then((res) => res.json())
         .then((data) => {
+            console.log(data);
             let allIdeas = data;
             let allInfo = document.getElementById("all-info");
-
             for (i = 0; i < allIdeas.length; i++) {
-                //??? 
                 let newEntry = document.createElement("p");
-                     
-        });
-})
+                newEntry.innerHTML = allIdeas[i].content;
+                allInfo.appendChild(newEntry);
+            };
+        })
+
+       
+}
