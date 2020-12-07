@@ -4,70 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="style.css" />
-
-
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
         crossorigin="" />
-
     <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
-
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
 
     <title>LIBERATE LINKS</title>
+
 </head>
+<!-- <a href="public/intro.html"> </a> -->
 
 <body>
     <div id="map"></div>
 
     <div class="container">
 
-        <p class="big-title"> NYC Link Liberation</p>
-
+        <!-- TITLE AND ADDRESS -->
+        <p class="big-title"> NYC Link Liberation Idea Bank</p>
         <p class="address-insert"><span id="link-address"> </span></p>
-
         <br>
+        <div id="location-info"></div>
+
 
         <!-- ENTER NEW IDEA -->
-
-        <div class="sub-container">
-
+        <div id="input-area" class="sub-container">
             <form id="myForm">
                 <input type="text" class="user-name" id="idea-name" placeholder="add your name" />
                 <br>
                 <input type="text" class="idea-input" id="idea-content" placeholder="add your idea" />
-
                 <button id="idea-button">submit</button>
-
-
-             </form>
-
+            </form>
         </div>
-
 
         <!-- EXPLORE ALL IDEAS -->
         <div class="explore-others">
-
-            <!-- <button id="locationButton">ideas for THIS location ONLY</button>
-            <div id="location-info"></div> -->
-
             <button id="all-button">show ALL ideas</button>
             <div class="display-all" id="all-info"></div>
-
         </div>
 
     </div>
 </body>
-
-
 <script type="text/javascript" src="app.js"> </script>
 <!-- <script src="https://d3js.org/d3.v6.js"></script> -->
-
-
 </html>

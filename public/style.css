@@ -41,6 +41,7 @@ body {
   /* font-family: 'Open Sans', sans-serif;    */
 }
 
+
 /* this is title of page and pulled in location address */
 
 .container {
@@ -50,9 +51,7 @@ body {
   padding-top: 10px;
   padding-right: 60px;
 }
-
 /* NYC LInk Liberation */
-
 .big-title {
   font-size: 14px;
   display: flex;
@@ -60,7 +59,6 @@ body {
   /* //??? not centering */
   align-items: center
 }
-
 .address-insert {
   display: flex;
   /* //??? not centering */
@@ -68,6 +66,10 @@ body {
 }
 
 /* ------ add name, idea, and submit -------- */
+
+#input-area {
+  visibility: hidden;
+}
 
 .sub-container {
   display: flex;
@@ -83,7 +85,6 @@ body {
   flex-direction: row;
   align-items: flex-end;
   padding-top: 10px;
-  padding-left: 60px;
   word-wrap: normal;
 }
 
@@ -120,6 +121,7 @@ body {
   width: 50%;
   left: 300px;
   right: 30px;
+  padding-left: 300px;
   /* padding-right: 300px; */
   /* max-width: 300px; */
 }

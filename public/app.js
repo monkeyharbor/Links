@@ -30,14 +30,14 @@ async function getLinks() {
         el.className = 'marker';
 
         // create the popup
-        let popup = new mapboxgl.Popup({ offset: 90 }).setText(
-            'Select a Link and imagine its Liberation'
-        );
+        // let popup = new mapboxgl.Popup({ offset: 90 }).setText(
+        //     'Select a Link and imagine its Liberation'
+        // );
 
         // add markers
         let marker = new mapboxgl.Marker(el)
             .setLngLat([lon, lat]) // [lng, lat] coordinates to place the marker
-            .setPopup(popup) // sets a popup on this marker
+            // .setPopup(popup) // sets a popup on this marker
             .addTo(map); // add the marker to the map 
 
         let currdataObj = data.features[i];
@@ -49,19 +49,37 @@ getLinks();
 let linkAddressEl = document.getElementById("link-address");
 let currLinkAddress;
 
+let secondPage = document.getElementById("input-area");
+
 //function to set click event that happens on the marker
 function registerClickEvent(theEl, theObj) {
     theEl.addEventListener('click', function () {
-        console.log("Marker Clicked"); //napisene w terminal
-        console.log(theObj); //all data for this location
-        console.log(theObj.properties.street_address); //adres napisany w terminal
+        // console.log("Marker Clicked"); //napisene w terminal
+        // console.log(theObj); //all data for this location
+        // console.log(theObj.properties.street_address); //address
         currLinkAddress = theObj.properties.street_address;
         linkAddressEl.innerHTML = currLinkAddress;
 
+        //switch location-related ideas to visble along with INPUT areas
+        secondPage.style.visibility = "visible";
 
-        //??? add circle
-        //??? show ideas for this address only on the page
-        //??? fetch(‘/ideas/‘+currLinkAddress , .....
+        fetch("/ideas/" + currLinkAddress)
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                let locationIdeas = data;
+                let locationInfo = document.getElementById("location-info");
+                  //clears all text
+                  locationInfo.innerHTML="";
+                for (i = 0; i < locationIdeas.length; i++) {
+                    let newEntry = document.createElement("p");
+                    newEntry.innerHTML = locationIdeas[i].content;
+                    locationInfo.appendChild(newEntry);
+                };
+                //???doesnt work
+                // secondPage.style.visibility = "hidden";
+            })
+
     })
 }
 
@@ -95,10 +113,11 @@ submitbutton.addEventListener("click", function () {
 
 })
 
-//clear input fields
-function clearinputFields() {
-    document.getElementById("myForm").reset();
-}
+// //clear input fields
+// function clearinputFields() {
+//     document.getElementById("myForm").reset();
+// }
+// clearinputFields();
 
 // event to displays all ideas & location filter 
 let allButton = document.getElementById("all-button");
@@ -120,6 +139,4 @@ function fetchallIdeas() {
                 allInfo.appendChild(newEntry);
             };
         })
-
-       
 }
