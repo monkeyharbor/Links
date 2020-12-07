@@ -1,14 +1,3 @@
-//fetch all data from DB and save it to global array
-
-// window.addEventListener('load', function () {
-//     fetch('/allideas')
-//         .then(res => res.json())
-//         .then(data => {
-//             console.log(data);
-//         })
-// });
-
-
 const api_url = "https://data.cityofnewyork.us/resource/s4kf-3yrf.geojson";
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibW9ua2V5LWhhcmJvciIsImEiOiJja2h1cW1iNHYwNDd4MnRtbzQyd3NwejdjIn0.AWdWKkXgKST-dZeAGinXfg';
@@ -107,8 +96,7 @@ submitbutton.addEventListener("click", function () {
 })
 
 //clear input fields
-//make the function CLEAR THIS FIELD
-function myFunction() {
+function clearinputFields() {
     document.getElementById("myForm").reset();
 }
 
@@ -124,7 +112,6 @@ function fetchallIdeas() {
     fetch("/allideas")
         .then((res) => res.json())
         .then((data) => {
-            console.log(data);
             let allIdeas = data;
             let allInfo = document.getElementById("all-info");
             for (i = 0; i < allIdeas.length; i++) {
