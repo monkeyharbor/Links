@@ -25,38 +25,49 @@
 
 <body>
     <div id="map"></div>
-    
+
     <div class="container">
 
-        <h4> Link Liberation Ideas <span id="link-address"> </span></h4>
+        <p class="big-title"> NYC Link Liberation</p>
+
+        <p class="address-insert"><span id="link-address"> </span></p>
+
+        <br>
 
         <!-- ENTER NEW IDEA -->
+
         <div class="sub-container">
 
-            <input type="text" class="idea-input" id="idea-name" placeholder="name" />
+            <form id="myForm">
+                <input type="text" class="user-name" id="idea-name" placeholder="add your name" />
+                <br>
+                <input type="text" class="idea-input" id="idea-content" placeholder="add your idea" />
 
-            <input type="text" class="idea-input" id="idea-content" placeholder="ideas space" />
+                <button id="idea-button">submit</button>
 
-            <button id="idea-button">submit</button>
+
+             </form>
+
+        </div>
+
+
+        <!-- EXPLORE ALL IDEAS -->
+        <div class="explore-others">
+
+            <!-- <button id="locationButton">ideas for THIS location ONLY</button>
+            <div id="location-info"></div> -->
+
+            <button id="all-button">show ALL ideas</button>
+            <div class="display-all" id="all-info"></div>
 
         </div>
 
-
-      <!-- EXPLORE ALL IDEAS -->
-      <div class="explore-others">
-        <button id="locationButton">ideas for THIS location ONLY</button>
-        <div id="location-info"></div>
-
-        <button id="all-button">show ALL ideas</button>
-        <div id="all-info"></div>
-
-
-        </div>
     </div>
 </body>
 
 
 <script type="text/javascript" src="app.js"> </script>
+<!-- <script src="https://d3js.org/d3.v6.js"></script> -->
 
 
 </html>

@@ -1,48 +1,73 @@
 /* #linksMAP { height: 900px; } */
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+  /* display: flex; */
+  min-width: 600px;
+  margin: 0;
+  font-size: 12px;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
+/* ------------- MAP  ------------- */
+
 #map {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 50%;
+  /* position: -webkit-sticky;
+  position: sticky; */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
 }
 
 .marker {
-    background-image: url('assets/marker_v1.png');
-    background-size: cover;
-    width: 60px;
-    height: 200px;
-    border-radius: 5%;
-    cursor: pointer;
+  background-image: url('assets/marker_v1.png');
+  background-size: cover;
+  width: 60px;
+  height: 200px;
+  border-radius: 5%;
+  cursor: pointer;
 }
 
-  .mapboxgl-popup {
-    max-width: 200px;
+.mapboxgl-popup {
+  max-width: 200px;
+  /* border-radius: 25%; */
 }
 
-  .mapboxgl-popup-content {
-    text-align: center;
-    width: 200px;
-    /* font-family: 'Open Sans', sans-serif;    */
+.mapboxgl-popup-content {
+  text-align: left;
+  width: 100px;
+  height: 60px;
+  /* font-family: 'Open Sans', sans-serif;    */
 }
 
-
-/* ------------- USER INPUT  ------------- */
-
+/* this is title of page and pulled in location address */
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  padding-top: 20px;
-  padding-right: 30px;
+  padding-top: 10px;
+  padding-right: 60px;
 }
+
+/* NYC LInk Liberation */
+
+.big-title {
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  /* //??? not centering */
+  align-items: center
+}
+
+.address-insert {
+  display: flex;
+  /* //??? not centering */
+  align-items: center
+}
+
+/* ------ add name, idea, and submit -------- */
 
 .sub-container {
   display: flex;
@@ -50,17 +75,60 @@ body {
   align-items: flex-end;
   width: 60%;
   max-width: 1200px;
+  word-wrap: normal;
 }
+
+.form {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  padding-top: 10px;
+  padding-left: 60px;
+  word-wrap: normal;
+}
+
+.user-name {
+  flex-direction: row;
+  height: 30px;
+  box-sizing: border-box;
+  border: 2px solid rgb(248, 217, 217);
+  background-color: #f8f8f8;
+  font-size: 11px;
+}
+
+/* box for adding ideas */
 
 .idea-input {
   flex-direction: row;
-  /* submit button */
-  /* align-items: right; */
-/* } 
+  padding-top: 10px;
+  /* vertical-align: right; */
+  box-sizing: border-box;
+  width: 450px;
+  border: 2px solid rgb(248, 217, 217);
+  background-color: #f8f8f8;
+  font-size: 11px;
+  resize: none;
+  word-wrap: normal;
+}
+
+.display-all {
+  /* display: flex; */
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: absolute;
+  /* align-items: flex-end; */
+  width: 50%;
+  left: 300px;
+  right: 30px;
+  /* padding-right: 300px; */
+  /* max-width: 300px; */
+}
 
 button {
   height: 30px;
   margin-top: 20px;
-  background-color:rgb(234, 255, 255);
+  background-color: rgb(224, 227, 227);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
-

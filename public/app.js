@@ -1,22 +1,12 @@
 //fetch all data from DB and save it to global array
 
-window.addEventListener('load', function(){
-    fetch('/allideas')
-    .then(res => res.json())
-    .then(data => {
-        console.log(data);
-        // let ideasData = data.data;
-
-        // let parent = document.getElementById('feed');
-        // //Loop through the data & append info to the page
-        // for (let i=0; i < chirpData.length; i++){
-        //     let newChirp = document.createElement('p');
-        //     let chirpContent = chirpData[i].name + " : " + chirpData[i].msg;
-        //     console.log(chirpContent);
-        //     newChirp.innerHTML = chirpContent;
-        //     feed.appendChild(newChirp);
-        })
-    });
+// window.addEventListener('load', function () {
+//     fetch('/allideas')
+//         .then(res => res.json())
+//         .then(data => {
+//             console.log(data);
+//         })
+// });
 
 
 const api_url = "https://data.cityofnewyork.us/resource/s4kf-3yrf.geojson";
@@ -37,7 +27,6 @@ let map = new mapboxgl.Map({
     ]
 })
 
-
 // load GeoJSON data set - async/wait is same as using "than" order of actions
 async function getLinks() {
     const response = await fetch(api_url);
@@ -52,8 +41,8 @@ async function getLinks() {
         el.className = 'marker';
 
         // create the popup
-        let popup = new mapboxgl.Popup({ offset: 25 }).setText(
-            'Let us liberate this Link !   '
+        let popup = new mapboxgl.Popup({ offset: 90 }).setText(
+            'Select a Link and imagine its Liberation'
         );
 
         // add markers
@@ -63,7 +52,7 @@ async function getLinks() {
             .addTo(map); // add the marker to the map 
 
         let currdataObj = data.features[i];
-        registerClickEvent(el, currdataObj); //???
+        registerClickEvent(el, currdataObj); //???    
     }
 }
 getLinks();
@@ -80,11 +69,11 @@ function registerClickEvent(theEl, theObj) {
         currLinkAddress = theObj.properties.street_address;
         linkAddressEl.innerHTML = currLinkAddress;
 
-        //show ideas for this address only on the page
-        //fetch(‘/ideas/‘+currLinkAddress , .....
 
-        fetch('/allideas/' + currLinkAddress);
-        
+        //??? add circle
+
+        //??? show ideas for this address only on the page
+        //??? fetch(‘/ideas/‘+currLinkAddress , .....
     })
 }
 
@@ -99,7 +88,8 @@ submitbutton.addEventListener("click", function () {
         "name": name,
         "content": content,
         "address": location
-    }; //NOW idea Object has location connected to name/content
+    }; //ideaObject has location (address) connected to name/content
+
 
     fetch('/postidea', {
         method: "POST",
@@ -113,33 +103,46 @@ submitbutton.addEventListener("click", function () {
             console.log(data); //WRONG
             let newidea = document.createElement('p')
             newidea.innerHTML = ideaObject.content;
-        })
 
-    console.log(ideaObject); 
+            //clear field after user inout
+        })
+       
 })
 
+
+function myFunction() {
+    document.getElementById("myForm").reset();
+}
+
+
+
+
 // event to displays all ideas
+
 let allButton = document.getElementById("all-button");
 allButton.addEventListener("click", function () {
-  console.log("anything you want");
+    console.log("all button clicked");
 
-  fetch("/allideas", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      const allIdeas = data;
-      const targetDiv = document.getElementById("all-info");
+    fetch("/allideas", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        // body: JSON.stringify(ideaObject)
+    })
+        .then((res) => res.json())
+        .then((data) => {
+            let allIdeas = data;
+            let entryInfo = document.getElementById("all-info");
+            
+            for (i = 0; i < allIdeas.length; i++) {
 
-      console.log(targetDiv);
-      for (i = 0; i < allIdeas.length; i++) {
-        let newElement = document.createElement("p");
-        let { name, content, address } = allIdeas[i];
-        newElement.innerText = `Name: ${name} Content: ${content}, Address: ${address}`;
-        targetDiv.append(newElement);
-      }
-    });
-});
+                //??? 
+                let newEntry = document.createElement("p");
+                let { name, content, address } = allIdeas[i];
+            
+                newEntry.innerHTML = `Name: ${name} Content: ${content}, Address: ${address}`;
+                entryInfo.append(newEntry);
+            }
+        });
+})
