@@ -71,7 +71,6 @@ function registerClickEvent(theEl, theObj) {
 
 
         //??? add circle
-
         //??? show ideas for this address only on the page
         //??? fetch(‘/ideas/‘+currLinkAddress , .....
     })
@@ -106,22 +105,18 @@ submitbutton.addEventListener("click", function () {
 
             //clear field after user inout
         })
-       
+
 })
 
-
+//clear input fields
 function myFunction() {
     document.getElementById("myForm").reset();
 }
 
-
-
-
-// event to displays all ideas
-
+// event to displays all ideas / location only ideas
 let allButton = document.getElementById("all-button");
 allButton.addEventListener("click", function () {
-    console.log("all button clicked");
+    console.log("show ALL ideas button clicked");
 
     fetch("/allideas", {
         method: "GET",
@@ -133,16 +128,11 @@ allButton.addEventListener("click", function () {
         .then((res) => res.json())
         .then((data) => {
             let allIdeas = data;
-            let entryInfo = document.getElementById("all-info");
-            
-            for (i = 0; i < allIdeas.length; i++) {
+            let allInfo = document.getElementById("all-info");
 
+            for (i = 0; i < allIdeas.length; i++) {
                 //??? 
                 let newEntry = document.createElement("p");
-                let { name, content, address } = allIdeas[i];
-            
-                newEntry.innerHTML = `Name: ${name} Content: ${content}, Address: ${address}`;
-                entryInfo.append(newEntry);
-            }
+                     
         });
 })
