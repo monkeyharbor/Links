@@ -2,7 +2,8 @@
 
 body {
   /* display: flex; */
-  min-width: 600px;
+  /* min-width: 600px; */
+  background-color: rgb(234, 238, 238);
   margin: 0;
   font-size: 12px;
   padding: 0;
@@ -23,8 +24,8 @@ body {
 .marker {
   background-image: url('assets/marker_v1.png');
   background-size: cover;
-  width: 60px;
-  height: 200px;
+  width: 45px;
+  height: 130px;
   border-radius: 5%;
   cursor: pointer;
 }
@@ -48,8 +49,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  padding-top: 10px;
-  padding-right: 60px;
+  /* padding-top: 10px;
+  padding-right: 60px; */
+    width: 100%;
+    max-width: 980px;
+    padding: 0.5em;
+  }
 }
 /* NYC LInk Liberation */
 .big-title {
@@ -69,6 +74,20 @@ body {
 
 #input-area {
   visibility: hidden;
+}
+
+#all-button {
+  visibility: hidden;
+}
+
+#intro-text {
+  visibility: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 60%;
+  max-width: 1200px;
+  word-wrap: normal;
 }
 
 .sub-container {
@@ -133,4 +152,11 @@ button {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+
+
+@media (min-width: 980px) {
+  .container {
+    padding: 1em;
+  }
 }

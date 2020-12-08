@@ -4,16 +4,19 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibW9ua2V5LWhhcmJvciIsImEiOiJja2h1cW1iNHYwNDd4M
 
 let i = 0;
 
+// Set bounds to New York, New York
+let bounds = [
+    [-74.25909, 40.477399], // Southwest coordinates
+    [-73.700272, 40.917577] // Northeast coordinates
+    ];
+
 // initialize Mapbox GL JS
 let map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/light-v10',
-    center: [-73.975484, 40.799283],
-    zoom: 16,
-    maxBounds: [
-        [-74.04728500751165, 40.68392799015035], // Southwest 
-        [-73.91058699000139, 40.87764500765852] // Northeast 
-    ]
+    center: [-73.9978, 40.7209],
+    zoom: 13,
+    maxBounds: bounds // Sets bounds as max
 })
 
 // load GeoJSON data set - async/wait is same as using "than" order of actions
@@ -50,6 +53,9 @@ let linkAddressEl = document.getElementById("link-address");
 let currLinkAddress;
 
 let secondPage = document.getElementById("input-area");
+let allideasButton = document.getElementById("all-button");
+let introPage = document.getElementById("intro-text");
+
 
 //function to set click event that happens on the marker
 function registerClickEvent(theEl, theObj) {
@@ -60,8 +66,10 @@ function registerClickEvent(theEl, theObj) {
         currLinkAddress = theObj.properties.street_address;
         linkAddressEl.innerHTML = currLinkAddress;
 
-        //switch location-related ideas to visble along with INPUT areas
+        //switch visibility along with INPUT areas
         secondPage.style.visibility = "visible";
+        allideasButton.style.visibility = "visible";
+        introPage.style.visibility = "hidden";
 
         fetch("/ideas/" + currLinkAddress)
             .then((res) => res.json())
@@ -76,8 +84,6 @@ function registerClickEvent(theEl, theObj) {
                     newEntry.innerHTML = locationIdeas[i].content;
                     locationInfo.appendChild(newEntry);
                 };
-                //???doesnt work
-                // secondPage.style.visibility = "hidden";
             })
 
     })
@@ -111,21 +117,29 @@ submitbutton.addEventListener("click", function () {
             newidea.innerHTML = ideaObject.content;
         })
 
+//clear input fields
+function clearinputFields() {
+    document.getElementById("myForm").reset();
+}
+clearinputFields();
+
 })
 
-// //clear input fields
-// function clearinputFields() {
-//     document.getElementById("myForm").reset();
-// }
-// clearinputFields();
+
 
 // event to displays all ideas & location filter 
 let allButton = document.getElementById("all-button");
 allButton.addEventListener("click", function () {
     console.log("show ALL ideas button clicked");
     fetchallIdeas();
+    let div = document.getElementById('all-info');
+    if (div.style.display !== 'none') {
+        div.style.display = 'none';
+    }
+    else {
+        div.style.display = 'block';
+    }
 });
-
 
 function fetchallIdeas() {
     fetch("/allideas")

@@ -21,12 +21,17 @@
 <!-- <a href="public/intro.html"> </a> -->
 
 <body>
-    <div id="map"></div>
-
     <div class="container">
 
+
+
         <!-- TITLE AND ADDRESS -->
-        <p class="big-title"> NYC Link Liberation Idea Bank</p>
+        <p class="big-title"> NYC Link Liberation Ideas</p>
+        <div id="intro-text">
+            <br>
+            <p>THIS IS INTRO </p>
+        </div>
+
         <p class="address-insert"><span id="link-address"> </span></p>
         <br>
         <div id="location-info"></div>
@@ -38,18 +43,20 @@
                 <input type="text" class="user-name" id="idea-name" placeholder="add your name" />
                 <br>
                 <input type="text" class="idea-input" id="idea-content" placeholder="add your idea" />
-                <button id="idea-button">submit</button>
+               
+                
             </form>
+            <button id="idea-button">submit</button>
         </div>
 
         <!-- EXPLORE ALL IDEAS -->
         <div class="explore-others">
-            <button id="all-button">show ALL ideas</button>
+            <button id="all-button">show/hide ideas for all Links</button>
             <div class="display-all" id="all-info"></div>
         </div>
 
     </div>
 </body>
 <script type="text/javascript" src="app.js"> </script>
-<!-- <script src="https://d3js.org/d3.v6.js"></script> -->
+<script src="https://d3js.org/d3.v6.js"></script>
 </html>
