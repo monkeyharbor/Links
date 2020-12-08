@@ -10,6 +10,7 @@ let bounds = [
     [-73.700272, 40.917577] // Northeast coordinates
     ];
 
+
 // initialize Mapbox GL JS
 let map = new mapboxgl.Map({
     container: 'map',
@@ -53,7 +54,7 @@ let linkAddressEl = document.getElementById("link-address");
 let currLinkAddress;
 
 let secondPage = document.getElementById("input-area");
-let allideasButton = document.getElementById("all-button");
+// let allideasButton = document.getElementById("all-button");
 let introPage = document.getElementById("intro-text");
 
 
@@ -127,7 +128,7 @@ clearinputFields();
 
 
 
-// event to displays all ideas & location filter 
+// event to display all ideas when button clicked
 let allButton = document.getElementById("all-button");
 allButton.addEventListener("click", function () {
     console.log("show ALL ideas button clicked");

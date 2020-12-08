@@ -16,47 +16,71 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
 
     <title>LIBERATE LINKS</title>
-
 </head>
-<!-- <a href="public/intro.html"> </a> -->
 
 <body>
-    <div id="map"></div>
 
-    <div class="container">
+    <div class="parent">
 
-        <!-- TITLE AND ADDRESS -->
-        <p class="big-title"> NYC Link Liberation Ideas</p>
-        <div id="intro-text">
+
+        <div class="map-area">
+
+            <div id="map"></div>
+
+        </div>
+
+
+
+        <div class="container">
+
+            <div class="main-title"> NYC Link Liberation Ideas</div>
+
             <br>
-            <p>THIS IS INTRO </p>
-        </div>
+            <br>
 
-        <p class="address-insert"><span id="link-address"> </span></p>
-        <br>
-        <div id="location-info"></div>
-
-
-        <!-- ENTER NEW IDEA -->
-        <div id="input-area" class="sub-container">
-            <form id="myForm">
-                <input type="text" class="user-name" id="idea-name" placeholder="add your name" />
+            <div id="intro-text">
                 <br>
-                <input type="text" class="idea-input" id="idea-content" placeholder="add your idea" />
-               
-                
-            </form>
-            <button id="idea-button">submit</button>
-        </div>
+                <p>SAMPLE INTRO TEXT - GOES AWAY ONCE LOCATION IS SELECTED</p>
+                <p>SAMPLE INTRO TEXT - GOES AWAY ONCE LOCATION IS SELECTED</p>
+                <p>SAMPLE INTRO TEXT - GOES AWAY ONCE LOCATION IS SELECTED</p>
+                <p>SAMPLE INTRO TEXT - GOES AWAY ONCE LOCATION IS SELECTED</p>
+            </div>
 
-        <!-- EXPLORE ALL IDEAS -->
-        <div class="explore-others">
-            <button id="all-button">show/hide ideas for all Links</button>
-            <div class="display-all" id="all-info"></div>
+            <br>
+            <br>
+
+            <div class="location-specific">
+                <p class="address-insert"><span id="link-address"> </span></p>
+
+                <br>
+
+                <div id="input-area" class="sub-container">
+                    <form id="myForm">
+                        <input type="text" class="user-name" id="idea-name" placeholder="add your name" />
+                        <br>
+                        <input type="text" class="idea-input" id="idea-content" placeholder="add your idea" />
+                    </form>
+                    <button id="idea-button">submit</button>
+                </div>
+
+                <div id="location-info"></div>
+
+            </div>
+
+            <!-- EXPLORE ALL IDEAS -->
+            <div class="explore-others">
+
+                <button id="all-button">show/hide ideas for all Links</button>
+                
+                <div class="display-all" id="all-info"></div>
+            </div>
+
         </div>
 
     </div>
+
 </body>
 <script type="text/javascript" src="app.js"> </script>
 <script src="https://d3js.org/d3.v6.js"></script>
+
 </html>
