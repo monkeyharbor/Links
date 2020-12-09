@@ -2,24 +2,33 @@ body {
   background-color: rgb(234, 238, 238);
   margin: 0;
   font-size: 12px;
+  line-height: 1.5;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
 
 .parent {
   display: flex;
-  align-content: stretch;  
 }
 
+.map-area {
+  position:relative;
+  /* width: 50%; */
+  height: 1200px;
+  width: 600px;
+}
 
 #map {
-  /* position: -webkit-sticky;
-  position: sticky; */
+  height: inherit;
+  width: inherit;
+}
+
+/* #map {
   position: absolute;
   top: 0;
   bottom: 0;
   width: 50%;
-}
+} */
 
     .marker {
     background-image: url('assets/marker_v1.png');
@@ -33,65 +42,59 @@ body {
     .marker-clicked {
       background-image: url('assets/openHANDgreen.png');
       background-size: cover;
-      width: 45px;
-      height: 130px;
+      width: 60px;
+      height: 140px;
       border-radius: 5%;
       cursor: pointer;
       }
 
-    .mapboxgl-popup {
-    max-width: 200px;
-    /* border-radius: 25%; */
-    }
+      /* .mapboxgl-popup {
+      max-width: 200px;
+      /* border-radius: 25%; */
+      /* } */
 
-    .mapboxgl-popup-content {
-    text-align: left;
-    width: 100px;
-    height: 60px;
-    /* font-family: 'Open Sans', sans-serif;    */
-}
+      /* .mapboxgl-popup-content {
+      text-align: left;
+      width: 100px;
+      height: 60px; */
+      /* font-family: 'Open Sans', sans-serif;    */
+      /* } */ 
 
 .container {
   display: flex;
-  position: absolute;
-  right: 0;
+  position: relative;
+  right: 10;
   flex-direction: column;
   align-items: flex-end;
-  width: 50%;
-  max-width: 980px;
+  width: 100%;
   padding: 10px 20px 30px 30px;
   }
 
-  .main-title {
-    justify-content: center;
-    padding: 20px 20px 30px 30px;
-  }
-
-  #intro-text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    width: 60%;
-    max-width: 1200px;
-    word-wrap: normal;
-  }
-
-  .location-specific {
-    display: flex;
-    /* position: absolute; */
-    right: 0;
-    flex-direction: column;
-    align-items: flex-end;
-    width: 60%;
-    max-width: 980px;
-    padding: 10px 20px 30px 30px;
+    .main-title {
+      justify-content: center;
+      font-size: 25px;
+      padding: 20px 10px 10px 10px;
     }
 
-      .address-insert {
-        display: flex;
-        /* //??? not centering */
-        align-items: center
-      }
+    #intro-text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      /* max-width: 1200px; */
+      /* word-wrap: normal; */
+    }
+
+  .location-specific {
+    right: 0;
+    align-items: flex-end;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    /* width: 60%;
+    max-width: 980px;
+    padding: 10px 20px 30px 30px; */
+    }
 
       #input-area {
         visibility: hidden;
@@ -102,20 +105,14 @@ body {
       }
 
   .sub-container {
-    display: flex;
+    align-items: center;
+    width: auto;
     flex-direction: column;
+    flex-wrap: wrap;
     align-items: flex-end;
-    width: 60%;
-    max-width: 1200px;
-    word-wrap: normal;
-  }
-
-  .form {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    padding-top: 10px;
-    word-wrap: normal;
+    /* width: 50%; */
+    left: 300px;
+    right: 30px;
   }
 
   .user-name {
@@ -127,42 +124,36 @@ body {
     font-size: 11px;
   }
 
-  /* box for adding ideas */
-
   .idea-input {
-    flex-direction: row;
-    padding-top: 10px;
-    /* vertical-align: right; */
-    box-sizing: border-box;
-    width: 450px;
-    border: 2px solid rgb(248, 217, 217);
-    background-color: #f8f8f8;
-    font-size: 11px;
-    resize: none;
-    word-wrap: normal;
+      width: 100%;
+      height: 150px;
+      padding: 12px 20px;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      background-color: #f8f8f8;
+      font-size: 16px;
+      resize: none;
   }
 
   .display-all {
-    /* display: flex; */
     flex-direction: column;
     flex-wrap: wrap;
-    /* position: absolute; */
     align-items: flex-end;
-    width: 50%;
+    width: 100%;
     left: 300px;
     right: 30px;
-    padding-left: 300px;
-    /* padding-right: 300px; */
-    /* max-width: 300px; */
+    /* padding-left: 300px; */
   }
 
   button {
     height: 30px;
-    margin-top: 20px;
+    margin-top: 10px;
     background-color: rgb(224, 227, 227);
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 0%
   }
 
 

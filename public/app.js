@@ -135,8 +135,6 @@ clearinputFields();
 
 })
 
-
-
 // event to display all ideas when button clicked
 let allButton = document.getElementById("all-button");
 allButton.addEventListener("click", function () {
