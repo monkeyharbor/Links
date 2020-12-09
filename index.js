@@ -22,7 +22,7 @@ server.listen(port, () => {
 
 //ROUTE to store ideas data
 app.post('/postidea', (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     db.insert(req.body);
     res.json({ "status": "success" });
 })
@@ -49,7 +49,7 @@ app.get('/userideas/:user', (req, res) => {
 //route to get ideas for the location ONLY (this works)
 app.get('/ideas/:location', (req, res) => {
     db.find({ "address": req.params.location }, function (err, docs) {
-        console.log(docs);
+        // console.log(docs);
         res.json(docs);
     });
 })

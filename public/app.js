@@ -54,13 +54,22 @@ let linkAddressEl = document.getElementById("link-address");
 let currLinkAddress;
 
 let secondPage = document.getElementById("input-area");
-// let allideasButton = document.getElementById("all-button");
+let allideasButton = document.getElementById("all-button");
 let introPage = document.getElementById("intro-text");
+
+let lastClickedEl;
 
 
 //function to set click event that happens on the marker
 function registerClickEvent(theEl, theObj) {
     theEl.addEventListener('click', function () {
+        if (lastClickedEl) {
+            lastClickedEl.classList.remove ("marker-clicked");
+        }
+        theEl.classList.add("marker-clicked");
+        lastClickedEl = theEl;
+
+
         // console.log("Marker Clicked"); //napisene w terminal
         // console.log(theObj); //all data for this location
         // console.log(theObj.properties.street_address); //address
@@ -70,12 +79,12 @@ function registerClickEvent(theEl, theObj) {
         //switch visibility along with INPUT areas
         secondPage.style.visibility = "visible";
         allideasButton.style.visibility = "visible";
-        introPage.style.visibility = "hidden";
+        introPage.style.display = "none";
 
         fetch("/ideas/" + currLinkAddress)
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 let locationIdeas = data;
                 let locationInfo = document.getElementById("location-info");
                   //clears all text
@@ -94,9 +103,9 @@ let submitbutton = document.getElementById("idea-button")
 submitbutton.addEventListener("click", function () {
     let location = currLinkAddress;
     let name = document.getElementById('idea-name').value;
-    console.log(name); //imie /napisene w terminal
+    // console.log(name); //imie /napisene w terminal
     let content = document.getElementById('idea-content').value;
-    console.log(content); //idea napisene w terminal
+    // console.log(content); //idea napisene w terminal
     let ideaObject = {
         "name": name,
         "content": content,
@@ -113,7 +122,7 @@ submitbutton.addEventListener("click", function () {
     })
         .then(res => res.json())
         .then(data => {
-            console.log(data); //WRONG
+            // console.log(data); 
             let newidea = document.createElement('p')
             newidea.innerHTML = ideaObject.content;
         })

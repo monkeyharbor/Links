@@ -30,6 +30,15 @@ body {
     cursor: pointer;
     }
 
+    .marker-clicked {
+      background-image: url('assets/openHANDgreen.png');
+      background-size: cover;
+      width: 45px;
+      height: 130px;
+      border-radius: 5%;
+      cursor: pointer;
+      }
+
     .mapboxgl-popup {
     max-width: 200px;
     /* border-radius: 25%; */
@@ -48,7 +57,7 @@ body {
   right: 0;
   flex-direction: column;
   align-items: flex-end;
-  width: 60%;
+  width: 50%;
   max-width: 980px;
   padding: 10px 20px 30px 30px;
   }
@@ -59,7 +68,6 @@ body {
   }
 
   #intro-text {
-    visibility: visible;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -70,7 +78,7 @@ body {
 
   .location-specific {
     display: flex;
-    position: absolute;
+    /* position: absolute; */
     right: 0;
     flex-direction: column;
     align-items: flex-end;
@@ -93,14 +101,14 @@ body {
       visibility: hidden;
       }
 
-  /* .sub-container {
+  .sub-container {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     width: 60%;
     max-width: 1200px;
     word-wrap: normal;
-  } */
+  }
 
   .form {
     display: flex;
@@ -138,8 +146,8 @@ body {
     /* display: flex; */
     flex-direction: column;
     flex-wrap: wrap;
-    position: absolute;
-    /* align-items: flex-end; */
+    /* position: absolute; */
+    align-items: flex-end;
     width: 50%;
     left: 300px;
     right: 30px;
