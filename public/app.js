@@ -10,7 +10,6 @@ let bounds = [
     [-73.700272, 40.917577] // Northeast coordinates
     ];
 
-
 // initialize Mapbox GL JS
 let map = new mapboxgl.Map({
     container: 'map',
