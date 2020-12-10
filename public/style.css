@@ -98,12 +98,14 @@ body {
       background-color: black;
       color: white;
       margin-top: 20px;
+     
       width: fit-content;
       display: flex;
       flex-direction: row;
       align-items: flex-end;
-
     }
+
+
     .mission-page {
       display: flex;
       flex-direction: column;
@@ -207,6 +209,8 @@ body {
     text-decoration: none;
     display: inline-block;
   }
+
+
   
   a:hover, a:active {
     background-color: rgb(71, 212, 55);
