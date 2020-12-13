@@ -35,23 +35,20 @@
 
             <div id="intro-text">
 
-                <p>Welcome to the Link Liberation Front of NYC!</p>
-
+                <div class="welcome-para"> 
+                    <p>Welcome to the Link Liberation Front of NYC!</p>
+                </div>
                 <p>The Links co-opt public space for advertising.</p> 
-
                 <p>They are equipped with highly advanced surveillance technology.</p> 
-
                 <p>Links violate our privacy and collect our data.</p>
-
                 <p>Will Links be the cornerstone of an all-encompassing surveillance state?</p> 
-
                 <p>Will the future continue in our society's tendency to shut out the already marginalized?</p> 
-
                 <p>Will every space of our public life be filled with advertising?</p>  
-
                 <p>Let’s intervene and make Links serve their neighborhoods and all neighbors better.</p>
 
-                <p>Select a Link and share ideas!</p> 
+                <div class="select-para">
+                    <p>Select a Link and share ideas!</p> 
+                </div>
             
             </div>
 
@@ -63,6 +60,8 @@
                 <div id="input-area" class="sub-container">
                     
                     <form id="myForm">
+                        <p>Please enter new ideas or comment on others:</p>
+
                         <input type="text" class="user-name" id="idea-name" placeholder="add your name" />
                         <br>
                         <input type="text" class="idea-input" id="idea-content" placeholder="add your idea" />
@@ -70,7 +69,10 @@
 
                     <button id="idea-button">submit</button>
 
+                    <hr>
+                    <p>Ideas for this location are:</p>
                     <div id="location-info"></div>
+                    <hr>
                     
                 </div>
 
@@ -79,7 +81,7 @@
             <!-- EXPLORE ALL IDEAS -->
             <div class="explore-others">
 
-                <button id="all-button">show/hide ideas for all Links</button>
+                <button id="all-button">show/hide ideas for all Links locations</button>
                 
                 <div class="display-all" id="all-info"></div>
             </div>

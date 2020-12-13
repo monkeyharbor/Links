@@ -68,14 +68,10 @@ function registerClickEvent(theEl, theObj) {
         theEl.classList.add("marker-clicked");
         lastClickedEl = theEl;
 
-
-        // console.log("Marker Clicked"); //napisene w terminal
-        // console.log(theObj); //all data for this location
-        // console.log(theObj.properties.street_address); //address
         currLinkAddress = theObj.properties.street_address;
         linkAddressEl.innerHTML = currLinkAddress;
 
-        //switch visibility along with INPUT areas
+        //switch visibility after user clicks on marker
         secondPage.style.visibility = "visible";
         allideasButton.style.visibility = "visible";
         introPage.style.display = "none";
@@ -105,6 +101,7 @@ submitbutton.addEventListener("click", function () {
     // console.log(name); //imie /napisene w terminal
     let content = document.getElementById('idea-content').value;
     // console.log(content); //idea napisene w terminal
+
     let ideaObject = {
         "name": name,
         "content": content,
@@ -124,6 +121,7 @@ submitbutton.addEventListener("click", function () {
             // console.log(data); 
             let newidea = document.createElement('p')
             newidea.innerHTML = ideaObject.content;
+
         })
 
 //clear input fields
