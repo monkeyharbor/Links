@@ -28,7 +28,8 @@ https://leafletjs.com/examples/custom-icons/ <br>
 https://docs.mapbox.com/mapbox-gl-js/example/animate-point-along-route/ <br>
 
 <b>Special Thanks</b><br>
-ITP IMA Low Res Faculty and Residents
+ITP IMA Low Res Faculty and Residents<br>
+http://rethinklink.nyc/<br>
 
 <b>Visit</b><br>
 Deployed Link: https://llf.glitch.me/<br>
